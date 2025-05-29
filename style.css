@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at center, #0d0d0d, #000000);
+    color: #fff;
+    overflow: hidden;
+    height: 100vh;
+    perspective: 1000px;
+}
+
+#map {
+    position: relative;
+    width: 100vw;
+    height: 90vh;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg);
+    transition: transform 0.4s ease;
+}
+
+.zone {
+    position: absolute;
+    width: 180px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(8px);
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+    transition: transform 0.4s ease;
+    z-index: 2;
+}
+
+.zone::before {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 60%);
+    z-index: -1;
+    animation: pulse 4s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.15;
+    }
+    50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.4;
+    }
+}
+
+.zone h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #ffdede;
+}
+
+.zone p {
+    margin: 0.25rem 0 0;
+    font-size: 0.9rem;
+    color: #ffeaea;
+}
+
+#astraea { top: 60%; left: 15%; }
+#gilded { top: 20%; left: 30%; }
+#twilight { top: 60%; left: 70%; }
+#unknown { top: 20%; left: 75%; }
+
+#cursor {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ffffff99;
+    box-shadow: 0 0 10px 2px #ffffff88;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) translateZ(30px);
+    pointer-events: none;
+}
+
+#zoneOverlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  transition: background 0.4s ease;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-blend-mode: normal, overlay;
+}

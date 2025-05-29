@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Rings of Solana</title>
+  <link rel="stylesheet" href="/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+
+</head>
+<body onclick="document.querySelectorAll('audio').forEach(a => { a.play().then(() => a.pause()).catch(() => {}); });">
+  <main>
+    <div id="map">
+        <div id="zoneOverlay"></div>
+        <div class="zone" id="astraea" tabindex="0" aria-label="The Astraea. Core civilization."
+            data-description="Heart of Solana, home to its greatest minds and leaders.">
+            <h2>The Astraea</h2>
+            <p>Core Civilization</p>
+        </div>
+
+        <div class="zone" id="gilded" tabindex="0" aria-label="Gilded Ramparts. Defensive Ring."
+            data-description="The defensive structure of Solana.">
+            <h2>Gilded Ramparts</h2>
+            <p>Defensive ring</p>
+        </div>
+
+        <div class="zone" id="twilight" tabindex="0" aria-label="Twilight Expanse. Exploration frontier."
+            data-description="The land of explorers. It is a largely unexplored region, filled with remnants of Astraea's impact.">
+            <h2>Twilight Expanse</h2>
+            <p>Exploration frontier</p>
+        </div>
+
+        <div class="zone" id="unknown" tabindex="0" aria-label="Unknown Region. Farthest reaches."
+            data-description="No Solari has crossed this expanse. It exists only in prophecies, theories, and lost transmissions." >
+            <h2>Unknown Region</h2>
+            <p>Farthest reaches</p>
+        </div>
+
+      <div id="cursor"></div>
+    </div>
+  </main>
+    <audio id="proximitySound" src="sounds/ping.flac" preload="auto"></audio>
+    <audio id="footstepSound" src="sounds/move.ogg" preload="auto"></audio>
+    <script src="main.js"></script>
+
+
+</body>
+</html>
